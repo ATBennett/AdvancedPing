@@ -5,14 +5,14 @@ namespace AdvancedPing
 {
     public class PingResults
     {
-        public double Count { get; private set; }
+        public long Count { get; private set; }
         public double Average { get; private set; }
-        public double Max { get; private set; }
-        public double Min { get; private set; }
-        public double PacketsLost { get; private set; }
+        public long Max { get; private set; }
+        public long Min { get; private set; }
+        public long PacketsLost { get; private set; }
         public double PacketsLostPercent => (PacketsLost / Count) * 100;
-        public double SuccessfulPackets => Count - PacketsLost;
-        public double MaxJitter { get; private set; }
+        public long SuccessfulPackets => Count - PacketsLost;
+        public long MaxJitter { get; private set; }
         public double AverageJitter { get; private set; }
         public PingResultStatus Status { get; private set; }
         public string StatusMessage { get; private set; }
@@ -32,7 +32,7 @@ namespace AdvancedPing
             }
             else
             {
-                Min = double.MaxValue;
+                Min = long.MaxValue;
                 PacketsLost = 1;
             }
         }
@@ -43,7 +43,7 @@ namespace AdvancedPing
             Status = PingResultStatus.Failed;
             Count = 1;
             PacketsLost = 1;
-            Min = double.MaxValue;
+            Min = long.MaxValue;
         }
 
         public static PingResults BuildFailedResults(string error)

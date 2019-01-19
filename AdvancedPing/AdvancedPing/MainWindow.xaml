@@ -21,24 +21,19 @@
             <ColumnDefinition Width="290" />
         </Grid.ColumnDefinitions>
         <StatusBar
-            x:Name="StatusBar"
-            Grid.Row="4"
+            Grid.Row="3"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Margin="0,0,0,0">
-            Ready
+            <TextBlock x:Name="StatusText" Text="Ready" />
         </StatusBar>
         <Menu
-            x:Name="Menu"
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Margin="0,0,0,0">
             <MenuItem Header="_Help">
-                <MenuItem
-                    x:Name="About"
-                    Click="About_OnClick"
-                    Header="About" />
+                <MenuItem Click="About_OnClick" Header="About" />
             </MenuItem>
         </Menu>
         <Label
@@ -46,9 +41,9 @@
             Grid.Column="0"
             Margin="10,0,0,0"
             HorizontalAlignment="Left"
-            Content="Domain" />
+            Content="Address" />
         <TextBox
-            x:Name="Domain"
+            x:Name="Address"
             Grid.Row="1"
             Grid.Column="0"
             Height="20"
@@ -108,22 +103,26 @@
             VerticalAlignment="Center"
             Click="Start_OnClick"
             Content="Start" />
-        <Rectangle
+        <ScrollViewer
+            x:Name="ScrollViewer"
             Grid.Row="2"
-            Margin="0,0,0,0"
-            Fill="Black" />
-        <TextBlock
-            x:Name="PingResults"
-            Grid.Row="2"
-            Margin="0,0,0,0"
-            Text="Waiting to begin...">
-            <TextBlock.Style>
-                <Style>
-                    <Setter Property="TextBlock.Foreground" Value="Green" />
-                    <Setter Property="TextBlock.FontSize" Value="12" />
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
+            Grid.Column="0"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Visible">
+            <TextBlock
+                x:Name="Output"
+                Margin="0,0,0,0"
+                Text="Waiting to begin..."
+                TextWrapping="Wrap">
+                <TextBlock.Style>
+                    <Style>
+                        <Setter Property="TextBlock.Foreground" Value="Green" />
+                        <Setter Property="TextBlock.Background" Value="Black" />
+                        <Setter Property="TextBlock.FontSize" Value="12" />
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </ScrollViewer>
         <Grid
             Margin="0,0,0,0"
             Column="1"
