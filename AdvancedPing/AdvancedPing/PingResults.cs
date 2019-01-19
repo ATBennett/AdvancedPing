@@ -10,7 +10,7 @@ namespace AdvancedPing
         public long Max { get; private set; }
         public long Min { get; private set; }
         public long PacketsLost { get; private set; }
-        public double PacketsLostPercent => (PacketsLost / Count) * 100;
+        public double PacketsLostPercent => ((double)PacketsLost / Count) * 100;
         public long SuccessfulPackets => Count - PacketsLost;
         public long MaxJitter { get; private set; }
         public double AverageJitter { get; private set; }

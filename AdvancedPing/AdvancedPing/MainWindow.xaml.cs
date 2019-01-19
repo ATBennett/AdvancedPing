@@ -62,6 +62,7 @@ namespace AdvancedPing
 
         private void AppendOutput(string newLine)
         {
+            _consoleOutput.Clear();
             _consoleOutput.AppendLine(newLine);
             Output.Text = _consoleOutput.ToString();
             ScrollViewer.ScrollToEnd();
