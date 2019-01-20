@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -88,7 +90,8 @@ namespace AdvancedPing
 
         private void About_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var version = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+            MessageBox.Show($"Advanced Ping v{version}.\nCreated by Andrew Bennett", "About", MessageBoxButton.OK);
         }
     }
 }
